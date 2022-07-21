@@ -25,7 +25,7 @@ namespace FinancialData_ExcelHandler
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public List<FinDataObject> ReadFile(bool filteringNeeded = true, int firstRow = 2)
+        public List<FinDataObject> ReadFileWithFiltering(bool filteringNeeded = true, int firstRow = 2)
         {
             var finDataObjects = new List<FinDataObject>();
             int rows = GetRowsCount();
@@ -40,7 +40,7 @@ namespace FinancialData_ExcelHandler
                 {
                     try
                     {
-                        var FDO = new FinDataObject()
+                        finDataObjects.Add(new FinDataObject()
                         {
                             //Id = Int32.Parse(worksheet.Cells[i, j].Value2),
                             //Segment = worksheet.Cells[i, j + 1].Value2,
@@ -76,9 +76,7 @@ namespace FinancialData_ExcelHandler
                             MonthNumber = Convert.ToString(worksheet.Cells[i, 15].Value2),
                             MonthName = Convert.ToString(worksheet.Cells[i, 16].Value2),
                             Year = Convert.ToString(worksheet.Cells[i, 17].Value2)
-                        };
-                        finDataObjects.Add(FDO);
-
+                        });
                     }
                     catch (Exception ex)
                     {
@@ -87,8 +85,11 @@ namespace FinancialData_ExcelHandler
                     }
                 }
             }
+            QuitAndRelease();
             return finDataObjects;
         }
+
+        // Filters a given string, removing unnecessary symbols such as '\', '/', '(', ')', etc.
 
         //private static string ClearValue (this string str)
         //{
@@ -106,6 +107,7 @@ namespace FinancialData_ExcelHandler
         public void QuitAndRelease()
         {
             workbook.Close();
+            Marshal.ReleaseComObject(workbook);
             excel.Quit();
             Marshal.ReleaseComObject(excel);
         }

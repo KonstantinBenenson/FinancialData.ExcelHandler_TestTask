@@ -6,10 +6,10 @@ class Program
         string path = @"C:\Users\markell\Desktop\Телеком-Сервис ИТ\finExample.xlsx";
         Excel excel = new Excel(path, 1);
 
-        var data = excel.ReadFile();
+        var data = excel.ReadFileWithFiltering();
         foreach (var item in data)
         {
-            Console.WriteLine($"id : {item.Id}\tProduct : {item.Product}\tCountry : {item.Country}\tDate : {item.Date}\tProfit : {item.Profit}");
+            Console.WriteLine($"id : {item.Id}\t\tProduct : {item.Product}\t\tCountry : {item.Country}\t\tDate : {item.Date}\t\tProfit : {item.Profit}");
         }
     }    
 }
