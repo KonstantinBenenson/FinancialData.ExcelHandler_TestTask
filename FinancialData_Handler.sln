@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialData_ExcelHandler", "FinancialData_Handler\FinancialData_ExcelHandler.csproj", "{CF8D5751-666E-499D-B43E-D481E409198F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{28B5FF5E-5E23-4BEB-A92A-25BB0B719858}"
+	ProjectSection(SolutionItems) = preProject
+		TaskDescription.txt = TaskDescription.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF8D5751-666E-499D-B43E-D481E409198F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF8D5751-666E-499D-B43E-D481E409198F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF8D5751-666E-499D-B43E-D481E409198F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF8D5751-666E-499D-B43E-D481E409198F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {825EB69B-1C26-46E5-97A3-9DFB6DA3933D}
+	EndGlobalSection
+EndGlobal
