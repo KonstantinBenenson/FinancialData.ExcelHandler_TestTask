@@ -25,10 +25,11 @@ namespace FinancialData_ExcelHandler
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public List<FinDataObject> ReadFileWithFiltering(bool filteringNeeded = false, int firstRow = 2)
+        public List<FinDataModel> ReadFileWithFiltering(bool filteringNeeded = false, int firstRow = 2)
         {
-            var finDataObjects = new List<FinDataObject>();
+            var finDataObjects = new List<FinDataModel>();
             int rows = GetRowsCount();
+
             for (int i = firstRow; i <= rows; i++) // Rows
             {
                 if(filteringNeeded)
@@ -40,25 +41,8 @@ namespace FinancialData_ExcelHandler
                 {
                     try
                     {
-                        finDataObjects.Add(new FinDataObject()
+                        finDataObjects.Add(new FinDataModel()
                         {
-                            //Id = Int32.Parse(worksheet.Cells[i, j].Value2),
-                            //Segment = worksheet.Cells[i, j + 1].Value2,
-                            //Country = worksheet.Cells[i, j + 2].Value2,
-                            //Product = worksheet.Cells[i, j + 3].Value2,
-                            //DiscountBand = worksheet.Cells[i, j + 4].Value2,
-                            //UnitsSold = float.Parse(worksheet.Cells[i, j + 5].Value2),
-                            //ManufacturingPrice = Convert.ToDecimal(worksheet.Cells[i, j + 6].Value2),
-                            //SalePrice = Convert.ToDecimal(worksheet.Cells[i, j + 7].Value2),
-                            //GrossSales = Convert.ToDecimal(worksheet.Cells[i, j + 8].Value2),
-                            //Discounts = Convert.ToDecimal(worksheet.Cells[i, j + 9].Value2),
-                            //Sales = Convert.ToDecimal(worksheet.Cells[i, j + 10].Value2),
-                            //COGS = Convert.ToDecimal(worksheet.Cells[i, j + 11].Value2),
-                            //Profit = Convert.ToDecimal(worksheet.Cells[i, j + 12].Value2),
-                            //Date = worksheet.Cells[i, j + 13].Value2,
-                            //MonthNumber = byte.Parse(worksheet.Cells[i, j + 14].Value2),
-                            //MonthName = worksheet.Cells[i, j + 15].Value2,
-                            //Year = short.Parse(worksheet.Cells[i, j + 16].Value2)
                             Id = Convert.ToString(worksheet.Cells[i, 1].Value2),
                             Segment = Convert.ToString(worksheet.Cells[i, 2].Value2),
                             Country = Convert.ToString(worksheet.Cells[i, 3].Value2),
@@ -85,6 +69,7 @@ namespace FinancialData_ExcelHandler
                     }
                 }
             }
+
             QuitAndRelease();
             return finDataObjects;
         }

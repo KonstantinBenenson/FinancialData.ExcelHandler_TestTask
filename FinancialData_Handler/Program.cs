@@ -1,4 +1,6 @@
 ﻿using FinancialData_ExcelHandler;
+using FinancialData_ExcelHandler.Models;
+
 class Program
 {
     public static void Main()
@@ -6,7 +8,7 @@ class Program
         string path = @"C:\Users\markell\Desktop\Телеком-Сервис ИТ\finExample.xlsx";
         Excel excel = new Excel(path, 1);
 
-        var data = excel.ReadFileWithFiltering(true);
+        var data = excel.ReadFileWithFiltering(true).ToFinDataDTO();
 
         foreach (var item in data)
         {
@@ -22,7 +24,7 @@ class Program
     /// Запускает процесс сохранения данных в формате json /csv
     /// </summary>
     /// <param name="data"></param>
-    private static void InitiateSaving(IEnumerable<FinDataObject> data, bool firstIteration = true)
+    private static void InitiateSaving(List<FinDataDTO> data, bool firstIteration = true)
     {
         if(firstIteration)
             Console.WriteLine("\nДля сохранения документа в нужном формате, введите наименование формата (в любом регистре): json / csv.");
