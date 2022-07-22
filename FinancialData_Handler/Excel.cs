@@ -19,13 +19,13 @@ namespace FinancialData_ExcelHandler
         }
 
         /// <summary>
-        /// A method receives a starting cell pointers (axises), 
-        /// also a user can decide whether he wants to filter a data by the profits > 100000. By default a value of this parameter equals True 
+        /// В качестве параметра принимает первую строку, с которой начнется считывание документа (по умолчанию значение = 2),
+        ///  а также булиевую переменную, определяющемую необходимость фильтрации по столбцу Profit > 100000 (по умолчанию False)
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public List<FinDataObject> ReadFileWithFiltering(bool filteringNeeded = true, int firstRow = 2)
+        public List<FinDataObject> ReadFileWithFiltering(bool filteringNeeded = false, int firstRow = 2)
         {
             var finDataObjects = new List<FinDataObject>();
             int rows = GetRowsCount();
@@ -104,7 +104,7 @@ namespace FinancialData_ExcelHandler
             return range.Rows.Count;
         }
 
-        public void QuitAndRelease()
+        private void QuitAndRelease()
         {
             workbook.Close();
             Marshal.ReleaseComObject(workbook);
