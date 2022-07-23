@@ -8,7 +8,9 @@ class Program
         string path = @"C:\Users\markell\Desktop\Телеком-Сервис ИТ\finExample.xlsx";
         Excel excel = new Excel(path, 1);
 
-        var data = excel.ReadFileWithFiltering(true).ToFinDataDTO();
+        var data = excel
+            .ReadFileWithFilteringAsync(filteringNeeded: true).Result
+            .ToFinDataDTO();
 
         foreach (var item in data)
         {

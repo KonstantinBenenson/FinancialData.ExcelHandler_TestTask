@@ -35,6 +35,12 @@ namespace FinancialData_ExcelHandler
             }
         }
 
+        /// <summary>
+        /// Преобразует список объектов FinDataModel в список объектов FinDataDTO.
+        /// Сохраняемые поля свойств: Id, Product, Country, Date, Profit
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public static List<FinDataDTO> ToFinDataDTO(this List<FinDataModel> list)
         {
             var listDTO = new List<FinDataDTO>();

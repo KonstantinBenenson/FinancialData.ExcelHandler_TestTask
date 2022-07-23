@@ -21,7 +21,7 @@ namespace FinancialData_ExcelHandler.WritingInFiles
 
         public void SaveToSecondFormat(List<FinDataDTO> list)
         {
-            Console.WriteLine("\nНажмите 1, если требуется сохранить файл в формате 'csv'.\nНажмите любую другую кнопку, чтобы выйти из программы.");
+            Console.WriteLine("\nНажмите 1, если требуется сохранить файл в формате 'csv'.");
             var input = Console.ReadLine();
             if (Int32.TryParse(input, out int result))
             {
